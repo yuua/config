@@ -9,7 +9,7 @@ filetype off
 	"utility {{{
 
 	Bundle 'grep.vim'
-
+	Bundle 'thinca/vim-quickrun'
 	"}}} end utility
 
 	"syntax {{{
