@@ -19,10 +19,13 @@ setopt auto_pushd
 
 setopt correct
 
-export PATH=$PATH:~/.rvm/scripts/'rvm'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-if [ -f ~/.zsh/auto-fu.zsh.git/auto-fu.zsh ]; then
-  source ~/.zsh/auto-fu.zsh.git/auto-fu.zsh
+# path set
+export PATH=/usr/local/bin:$PATH
+
+if [ -f ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh ]; then
+  source ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh
   function zle-line-init () {
     auto-fu-init
   }
