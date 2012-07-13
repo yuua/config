@@ -24,6 +24,11 @@ setopt correct
 # path set
 export PATH=/usr/local/bin:$PATH
 
+# alias
+alias ll="ls -lac"
+alias history="history-all"
+
+
 if [ -f ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh ]; then
   source ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh
   function zle-line-init () {
