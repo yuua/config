@@ -9,7 +9,10 @@ filetype off
 	"utility {{{
 
 	Bundle 'grep.vim'
+	Bundle 'EnhCommentify.vim'
 	Bundle 'thinca/vim-quickrun'
+	Bundle 'yuroyoro/vim-autoclose'
+	Bundle 'tpope / vim-rails'
 	"}}} end utility
 
 	"syntax {{{
@@ -81,7 +84,7 @@ filetype off
 
 	"改行表示"
 	set list
-	set listchars=tab:>-,eol:↓,trail:-
+	set listchars=tab:>-,trail:-
 
 	"del & back key"
 	set backspace=indent,eol,start
