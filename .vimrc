@@ -12,7 +12,11 @@ filetype off
 	Bundle 'EnhCommentify.vim'
 	Bundle 'thinca/vim-quickrun'
 	Bundle 'yuroyoro/vim-autoclose'
-	Bundle 'tpope / vim-rails'
+	Bundle 'tpope/vim-rails'
+	Bundle 'vim-endwise'
+	Bundle 'hallison/vim-markdown'
+	Bundle 'Shougo/neocomplcache'
+	""	Bundle 'Shougo/neocomplcache'
 	"}}} end utility
 
 	"syntax {{{
@@ -22,7 +26,7 @@ filetype off
 	Bundle 'haml.zip'
 	Bundle 'JavaScript-syntax'
 	Bundle 'php.vim'
-	Bundle 'vim-ruby/vim-ruby'
+""	Bundle 'vim-ruby/vim-ruby'
 	Bundle 'tpope/vim-rails'
 
 	"}}} end syntax
@@ -49,11 +53,31 @@ filetype off
 	autocmd FileType python setl autoindent
 	autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 	autocmd FileType python setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType ruby   setl autoindent
+	autocmd FileType ruby   setl expandtab
 	autocmd FileType ruby   setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType eruby  setlocal sw=4 sts=4 ts=4 noet
+	autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et
 " }}} endindent
 
+"  {{{
+	let g:rsenseHome = "/usr/local/Cellar/rsense/0.3/libexec"
+	let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化"
+	let g:rsenseUseOmniFunc = 1
+	" }}}
+
+
+	if !exists('g:neocomplcache_omni_patterns')
+	let g:neocomplcache_omni_patterns = {}
+	endif
+	let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
 " setting {{{
+
+	"neocomplcache set {"
+""	let g:neocomplcache_enable_at_startup = 1
+	
+	"} neocomplcache set end"
 
 	"auto encode set"
 	set fileencodings=utf-8,euc-jp,cp932,iso-2022-jp,default,latin
@@ -92,6 +116,13 @@ filetype off
 	"other set"
 	set wildmenu
 	set vb t_vb=
+
+	"search set"
+	set ignorecase
+	set smartcase
+	set incsearch
+	set nowrapscan
+	set history=1000
 
 " }}} setting End
 

@@ -28,6 +28,7 @@ export PATH=/usr/local/bin:$PATH
 alias ll="ls -lac"
 alias history="history-all"
 alias be="bundle exec"
+alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 
 if [ -f ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh ]; then
   source ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh
