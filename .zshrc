@@ -24,6 +24,12 @@ setopt correct
 # path set
 export PATH=/usr/local/bin:$PATH
 
+# phpenv
+if [ -f ~/.phpenv/bin/phpenv ]; then
+  export PATH=$HOME/.phpenv/bin:$PATH
+  eval "$(phpenv init -)"
+fi
+
 # alias
 alias ll="ls -lac"
 alias history="history-all"
