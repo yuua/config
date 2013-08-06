@@ -13,7 +13,7 @@ filetype off
 	Bundle 'thinca/vim-quickrun'
 	Bundle 'yuroyoro/vim-autoclose'
 	Bundle 'tpope/vim-rails'
-	Bundle 'vim-endwise'
+	Bundle 'tpope/vim-endwise'
 	Bundle 'hallison/vim-markdown'
 	Bundle 'Shougo/neocomplcache'
 	""	Bundle 'Shougo/neocomplcache'
@@ -27,7 +27,6 @@ filetype off
 	Bundle 'JavaScript-syntax'
 	Bundle 'php.vim'
 ""	Bundle 'vim-ruby/vim-ruby'
-	Bundle 'tpope/vim-rails'
 
 	"}}} end syntax
 
