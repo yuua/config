@@ -1,6 +1,8 @@
 [submodule "vimfiles/vundle.git"]
 	path = vimfiles/vundle.git
 	url = http://github.com/gmarik/vundle.git
+	ignore = dirty
 [submodule "zshfiles/auto-fu.zsh.git"]
 	path = zshfiles/auto-fu.zsh.git
 	url = git://github.com/hchbaw/auto-fu.zsh.git
+	ignore = dirty
