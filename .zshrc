@@ -22,7 +22,7 @@ setopt correct
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # path set
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # phpenv
 if [ -f ~/.phpenv/bin/phpenv ]; then
