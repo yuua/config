@@ -9,6 +9,7 @@ filetype off
 	"utility {{{
 
 	Bundle 'grep.vim'
+	Bundle 'EnhancedCommentify.vim'
 	Bundle 'EnhCommentify.vim'
 	Bundle 'thinca/vim-quickrun'
 	Bundle 'yuroyoro/vim-autoclose'
@@ -16,6 +17,7 @@ filetype off
 	Bundle 'tpope/vim-endwise'
 	Bundle 'hallison/vim-markdown'
 	Bundle 'Shougo/neocomplcache'
+	Bundle 'kchmck/vim-coffee-script'
 	""	Bundle 'Shougo/neocomplcache'
 	"}}} end utility
 
@@ -56,6 +58,8 @@ filetype off
 	autocmd FileType ruby   setl expandtab
 	autocmd FileType ruby   setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType eruby  setlocal sw=4 sts=4 ts=4 noet
+	au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+	autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType php    setlocal sw=4 sts=4 ts=4 et
 	autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et
 " }}} endindent
@@ -66,6 +70,10 @@ filetype off
 	let g:rsenseUseOmniFunc = 1
 	" }}}
 
+"  {{{
+	let g:quickrun_config = {}
+	let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+	"  }}}
 
 	if !exists('g:neocomplcache_omni_patterns')
 	let g:neocomplcache_omni_patterns = {}
@@ -80,7 +88,7 @@ filetype off
 	"} neocomplcache set end"
 
 	"auto encode set"
-	set fileencodings=utf-8,euc-jp,cp932,iso-2022-jp,default,latin
+	set fileencodings=utf-8,euc-jp,eucjp-ms,euc-jisx0213,cp932,iso-2022-jp,default,latin
 
 	"行数を表示"
 	set number

@@ -8,9 +8,8 @@ set number
 set nobackup
 set visualbell t_vb=
 set nowrapscan
-set columns=100
-set lines=48
-
+set columns=200
+set lines=60
 
 if has('gui_macvim')
     map <silent> <C-p> :tabnext<CR>
@@ -21,5 +20,4 @@ endif
 
 
 "" colorscheme
-
 colorscheme molokai
