@@ -9,7 +9,6 @@ filetype off
 	"utility {{{
 
 	Bundle 'grep.vim'
-	Bundle 'EnhancedCommentify.vim'
 	Bundle 'EnhCommentify.vim'
 	Bundle 'thinca/vim-quickrun'
 	Bundle 'yuroyoro/vim-autoclose'
