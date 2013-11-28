@@ -28,6 +28,7 @@ filetype off
 	Bundle 'haml.zip'
 	Bundle 'JavaScript-syntax'
 	Bundle 'php.vim'
+	Bundle 'scrooloose/syntastic'
 ""	Bundle 'vim-ruby/vim-ruby'
 
 	"}}} end syntax
