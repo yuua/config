@@ -20,9 +20,12 @@ setopt auto_pushd
 setopt correct
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 # path set
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export DYLD_LIBRARY_PATH=/usr/local/Celler/libxml2/2.9.1/lib:\$DYLD_LIBRARY_PATH
+export GOROOT=/usr/local/bin/go
 
 # phpenv
 if [ -f ~/.phpenv/bin/phpenv ]; then
@@ -45,6 +48,7 @@ fi
 #  alias vim='macvim'
 #  ;;
 #esac
+#alias vim='macvim'
 
 # alias
 alias ll="ls -lac"
