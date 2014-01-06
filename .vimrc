@@ -62,6 +62,7 @@ filetype off
 	au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 	autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType js setlocal sw=2 sts=2 ts=2 et
+	autocmd FileType json setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType tpl setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType php    setlocal sw=4 sts=4 ts=4 et
 	autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et

@@ -19,12 +19,10 @@ setopt auto_pushd
 
 setopt correct
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 # path set
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export DYLD_LIBRARY_PATH=/usr/local/Celler/libxml2/2.9.1/lib:\$DYLD_LIBRARY_PATH
 export GOROOT=/usr/local/bin/go
 
 # phpenv
@@ -33,22 +31,7 @@ if [ -f ~/.phpenv/bin/phpenv ]; then
   eval "$(phpenv init -)"
 fi
 
-# MacVim
-#case ${OSTYPE} in
-#darwin*) # Mac OS X
-#  function macvim () {
-#    if [ -d /Applications/MacVim.app ]
-#    then
-#      [ ! -f $1 ] && touch $1
-#      open -a MacVim $1
-#    else
-#      vim $1
-#    fi
-#  }
-#  alias vim='macvim'
-#  ;;
-#esac
-#alias vim='macvim'
+eval "$(rbenv init -)"
 
 # alias
 alias ll="ls -lac"
@@ -67,3 +50,56 @@ fi
 
 autoload -U compinit
 compinit 
+###-begin-npm-completion-###
+#
+# npm command completion script
+#
+# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
+# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
+#
+
+COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
+COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
+export COMP_WORDBREAKS
+
+if type complete &>/dev/null; then
+  _npm_completion () {
+    local si="$IFS"
+    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
+                           COMP_LINE="$COMP_LINE" \
+                           COMP_POINT="$COMP_POINT" \
+                           npm completion -- "${COMP_WORDS[@]}" \
+                           2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  complete -F _npm_completion npm
+elif type compdef &>/dev/null; then
+  _npm_completion() {
+    si=$IFS
+    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+                 COMP_LINE=$BUFFER \
+                 COMP_POINT=0 \
+                 npm completion -- "${words[@]}" \
+                 2>/dev/null)
+    IFS=$si
+  }
+  compdef _npm_completion npm
+elif type compctl &>/dev/null; then
+  _npm_completion () {
+    local cword line point words si
+    read -Ac words
+    read -cn cword
+    let cword-=1
+    read -l line
+    read -ln point
+    si="$IFS"
+    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                       COMP_LINE="$line" \
+                       COMP_POINT="$point" \
+                       npm completion -- "${words[@]}" \
+                       2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  compctl -K _npm_completion npm
+fi
+###-end-npm-completion-###
