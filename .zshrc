@@ -62,5 +62,6 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
     screen -rx || screen -D -RR
   fi
 fi
+
 autoload -U compinit
 compinit 
