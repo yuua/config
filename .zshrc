@@ -24,6 +24,8 @@ setopt correct
 # path set
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export GOROOT=/usr/local/bin/go
+export GOPATH=$HOME/go
+export PATH=$HOME/.rbenv/bin:$PATH
 
 # phpenv
 if [ -f ~/.phpenv/bin/phpenv ]; then

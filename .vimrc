@@ -50,6 +50,10 @@ filetype off
 
 "}}} Envelopment end
 
+	if $GOROOT != ''
+		set rtp+=$GOROOT/misc/vim
+	endif
+
 " indent {{{
 	autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 	autocmd FileType python setl autoindent
