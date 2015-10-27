@@ -11,21 +11,28 @@ bindkey "C-p" history-beginning-search-bakcward-end
 bindkey "C-n" history-beginning-search-forward-end
 
 function history-all {history 1 }
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
 # cd set
 setopt auto_cd
 setopt auto_pushd
+setopt pushd_ignore_dups
 
+setopt no_beep
 setopt correct
 
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+if [-f $HOME/.pythonz ]; then
+  [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+fi
 
 # path set
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export GOROOT=/usr/local/bin/go
 export GOPATH=$HOME/go
 export PATH=$HOME/.rbenv/bin:$PATH
+export NODE_PATH=/usr/local/lib/node_modules
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # phpenv
 if [ -f ~/.phpenv/bin/phpenv ]; then
@@ -40,8 +47,8 @@ eval "$(rbenv init -)"
 alias ll="ls -lac"
 alias history="history-all"
 alias be="bundle exec"
-alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
-alias vim="reattach-to-user-namespace vim"
+alias ctags='`brew --prefix`/bin/ctags'
+#alias vim="reattach-to-user-namespace vim"
 
 if [ -f ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh ]; then
   source ~/.zsh/zshfiles/auto-fu.zsh.git/auto-fu.zsh
@@ -93,5 +100,23 @@ nprom () {
 }
 nprom
 
-autoload -U compinit
+autoload -Uz compinit
 compinit 
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/Users/yuya-noguchi/dev/cocos2d-x/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/Users/yuya-noguchi/dev/cocos2d-x/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT=/Users/yuya-noguchi/dev/android/android-ndk-r10e
+export PATH=$NDK_ROOT:$PATH
+
+export ANDROID_SDK_ROOT=/Users/yuya-noguchi/dev/android/android-sdk-macosx
+
+export ANT_ROOT=/Users/yuya-noguchi/dev/android/apache-ant-1.9.6/bin
+
+

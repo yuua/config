@@ -27,8 +27,12 @@ filetype off
 	Bundle 'yuroyoro/vim-python'
 	Bundle 'haml.zip'
 	Bundle 'JavaScript-syntax'
-	Bundle 'php.vim'
+	Bundle 'joshtronic/php.vim'
 	Bundle 'scrooloose/syntastic'
+	Bundle 'ryoppy/vim-scp-upload'
+	Bundle 'scrooloose/nerdtree'
+"        Bundle 'itchyny/lightline.vim'
+
 ""	Bundle 'vim-ruby/vim-ruby'
 
 	"}}} end syntax
@@ -69,6 +73,7 @@ filetype off
 	autocmd FileType json setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType tpl setlocal sw=2 sts=2 ts=2 et
 	autocmd FileType php    setlocal sw=4 sts=4 ts=4 et
+	autocmd FileType tpl    setlocal sw=4 sts=4 ts=4 et
 	autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et
 " }}} endindent
 
@@ -81,12 +86,33 @@ filetype off
 "  {{{
 	let g:quickrun_config = {}
 	let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
-	"  }}}
+"  }}}
 
 	if !exists('g:neocomplcache_omni_patterns')
 	let g:neocomplcache_omni_patterns = {}
 	endif
 	let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+	if isdirectory($HOME . '/.vim/bundle/vim-scp-upload')
+		let g:vim_scp_configs = {
+\			'game_kobato' : {
+\				'local_base_path' : '/Users/yuya-noguchi/dev/cobato/game-development/',
+\				'remote_base_path' : '/home/noguchi/god/',
+\				'user' : 'noguchi',
+\				'pass' : 'kurubushi',
+\				'host' : '202.171.148.203',
+\				'port' : '22'
+\			}
+\		}
+		nnoremap <C-@> <ESC>:call ScpUpload()<CR>
+	endif
+
+	let NERDTreeShowHidden = 1
+	let file_name = expand("%:p")
+	if has('vim_starting') &&  file_name == ""
+		autocmd VimEnter * execute 'NERDTree ./'
+	endif
+	nnoremap <C-_> <ESC>:NERDTree<CR>
 
 " setting {{{
 
