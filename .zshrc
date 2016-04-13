@@ -10,7 +10,7 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "C-p" history-beginning-search-bakcward-end
 bindkey "C-n" history-beginning-search-forward-end
 
-function history-all {history 1 }
+function history-all { history 1 }
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
 # cd set
@@ -95,3 +95,11 @@ nprom
 
 autoload -U compinit
 compinit 
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/Users/yuya/bin/cocos2d-x-3.6/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/Users/yuya/bin/cocos2d-x-3.6/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
