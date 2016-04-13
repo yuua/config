@@ -93,20 +93,6 @@ filetype off
 	endif
 	let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
-	if isdirectory($HOME . '/.vim/bundle/vim-scp-upload')
-		let g:vim_scp_configs = {
-\			'game_kobato' : {
-\				'local_base_path' : '/Users/yuya-noguchi/dev/cobato/game-development/',
-\				'remote_base_path' : '/home/noguchi/god/',
-\				'user' : 'noguchi',
-\				'pass' : 'kurubushi',
-\				'host' : '202.171.148.203',
-\				'port' : '22'
-\			}
-\		}
-		nnoremap <C-@> <ESC>:call ScpUpload()<CR>
-	endif
-
 	let NERDTreeShowHidden = 1
 	let file_name = expand("%:p")
 	if has('vim_starting') &&  file_name == ""
