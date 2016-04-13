@@ -21,7 +21,7 @@ setopt pushd_ignore_dups
 setopt no_beep
 setopt correct
 
-if [-f $HOME/.pythonz ]; then
+if [ -f $HOME/.pythonz ]; then
   [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 fi
 
@@ -31,9 +31,12 @@ export GOROOT=/usr/local/bin/go
 export GOPATH=$HOME/go
 export PATH=$HOME/.rbenv/bin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+
+if [ -f $HOME/.pyenv ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval  "$(pyenv init -)"
+fi
 
 # phpenv
 if [ -f ~/.phpenv/bin/phpenv ]; then
