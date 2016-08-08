@@ -10,7 +10,9 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "C-p" history-beginning-search-bakcward-end
 bindkey "C-n" history-beginning-search-forward-end
 
-function history-all {history 1 }
+function history-all {
+  history 1;
+}
 
 # cd set
 setopt auto_cd
@@ -20,7 +22,7 @@ setopt pushd_ignore_dups
 setopt no_beep
 setopt correct
 
-if [-f $HOME/.pythonz ]; then
+if [ -f ~/.pythonz/etc/bashrc ]; then
   [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 fi
 
