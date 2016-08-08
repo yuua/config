@@ -18,6 +18,7 @@ filetype off
 	Bundle 'Shougo/neocomplcache'
 	Bundle 'kchmck/vim-coffee-script'
 	Bundle 'osyo-manga/vim-over'
+	Bundle 'derekwyatt/vim-scala'
 	""	Bundle 'Shougo/neocomplcache'
 	"}}} end utility
 
@@ -94,16 +95,7 @@ filetype off
 	let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 	if isdirectory($HOME . '/.vim/bundle/vim-scp-upload')
-		let g:vim_scp_configs = {
-\			'game_kobato' : {
-\				'local_base_path' : '/Users/yuya-noguchi/dev/cobato/game-development/',
-\				'remote_base_path' : '/home/noguchi/god/',
-\				'user' : 'noguchi',
-\				'pass' : 'kurubushi',
-\				'host' : '202.171.148.203',
-\				'port' : '22'
-\			}
-\		}
+		source $HOME/.vimrc.office
 		nnoremap <C-@> <ESC>:call ScpUpload()<CR>
 	endif
 
