@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'hallison/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = ['coffeescript']
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
+
+[[plugins]]
+repo = 'yuroyoro/vim-python'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'joshtronic/php.vim'
+on_ft = ['php']
